@@ -7,7 +7,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @all_ratings = Movie.all_ratings
+    @all_ratings = Movie.all_ratings.keys.sort
 
     # if params[:sort] != nil
     #   session[:sort] = params[:sort]
@@ -57,15 +57,15 @@ class MoviesController < ApplicationController
     #   session[:ratings] = params[:ratings]
     # end
     if params[:ratings] == nil && session[:ratings] == nil
-      session[:ratings] = Movie.init_ratings
-      params[:ratings] = Movie.init_ratings
+      session[:ratings] = Movie.all_ratings
+      params[:ratings] = Movie.all_ratings
+      # puts Movie.all_ratings
+      redirect_to movies_path(:sort => session[:sort], :ratings => session[:ratings])
     end
 
     if params[:sort] == session[:sort] && params[:ratings] == session[:ratings]
-      if (params[:sort] == 'title')
-        @movies = Movie.where({:rating=>params[:ratings].keys}).order(:title)
-      elsif (params[:sort] == 'release_date')
-        @movies = Movie.where({:rating=>params[:ratings].keys}).order(:release_date)
+      if (params[:sort] != nil)
+        @movies = Movie.where({:rating=>params[:ratings].keys}).order(params[:sort])
       else
         @movies = Movie.where({:rating=>params[:ratings].keys})
       end
@@ -78,6 +78,27 @@ class MoviesController < ApplicationController
       end
       redirect_to movies_path(:sort => session[:sort], :ratings => session[:ratings])
     end
+
+    # if params[:sort] == session[:sort] && params[:ratings] == session[:ratings]
+    #   if (params[:sort] != nil)
+    #     @movies = Movie.where({:rating=>params[:ratings].keys}).order(params[:sort])
+    #   else
+    #     @movies = Movie.where({:rating=>params[:ratings].keys})
+    #   end
+      # if (params[:sort] == 'title')
+      #   @movies = Movie.where({:rating=>params[:ratings].keys}).order(:title)
+      # elsif (params[:sort] == 'release_date')
+      #   @movies = Movie.where({:rating=>params[:ratings].keys}).order(:release_date)
+      # else
+    # else
+    #   if params[:sort] != nil
+    #     session[:sort] = params[:sort]
+    #   end
+    #   if params[:ratings] != nil
+    #     session[:ratings] = params[:ratings]
+    #   end
+    #   redirect_to movies_path(:sort => session[:sort], :ratings => session[:ratings])
+    # end
   end
 
   def new

@@ -18,13 +18,13 @@ Now, you need to install some skeleton files that we provide.  There is a tarbal
 
 Here is a brief breakdown of the files we are providing to you:
 
-* step_definitions/web_steps.rb: Some low-level step definitions that handle tasks like clicking buttons and filling in forms.  You should not edit this file. But do look at it and be sure to understand its basic purpose and how to use it.
+* `step_definitions/web_steps.rb`: Some low-level step definitions that handle tasks like clicking buttons and filling in forms.  You should not edit this file. But do look at it and be sure to understand its basic purpose and how to use it.
 
-* step_definitions/movie_steps.rb: Higher level cucumber step definitions that you will need to implement.
+* `step_definitions/movie_steps.rb`: Higher level cucumber step definitions that you will need to implement.
 
-* filter_movie_list.feature: A feature file with scenarios you will be writing.
+* `filter_movie_list.feature`: A feature file with scenarios you will be writing.
 
-* sort_movie_list.feature: A feature file with scenarios you will be writing.
+* `sort_movie_list.feature`: A feature file with scenarios you will be writing.
 
 _HISTORICAL NOTE: the `file web_steps.rb` used to be included in distributions of Cucumber.  The maintainers decided that using such low-level steps encourages developers to write complicated scenarios, so they removed it from Cucumber by default.  We are providing it to you because we feel it is a good set of reference steps to browse through to get a feel for how Cucumber and Capybara work.  In general, for example when you start your own projects, you should NOT use the steps provided in `web_steps.rb`.  For more information, read the comments in `web_steps.rb`.  For this homework, feel free to use it (or avoid it if you're feeling adventurous)._
 

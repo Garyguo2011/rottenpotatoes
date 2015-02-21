@@ -14,7 +14,7 @@ Now run `bundle install --without production` to install these new dependencies.
 
 At this point you still need to setup the cucumber file scaffolding.  Because we are using the cucumber-rails gem, there is a simple command to do this for us: `rails generate cucumber:install`
 
-Now, you need to install some skeleton files that we provide.  There is a tarball with skeleton files that you can get here. Untar the tarball; it should contain a directory called 'features'.  Just merge that into the 'features' directory that already exists in your rottenpotatoes app.  
+Now, you need to install some skeleton files that we provide.  There is a tarball with skeleton files that you can get [here](https://s3-us-west-1.amazonaws.com/homework-tarballs/bdd-cucumber.tar.gz). Untar the tarball; it should contain a directory called 'features'.  Just merge that into the 'features' directory that already exists in your rottenpotatoes app.  
 
 Here is a brief breakdown of the files we are providing to you:
 

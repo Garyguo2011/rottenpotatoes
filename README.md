@@ -36,7 +36,7 @@ The background step of all the scenarios in this homework requires that the movi
 
 Recall that the Given steps of a user story specify the initial state of the system—it doesn't matter how the system got into that state. For part 1, therefore, you will create a step definition that will match the step Given the following movies exist in the Background section of both sort_movie_list.feature and filter_movie_list.feature. (Later in the course, we will show how to DRY out the repeated Background sections in the two feature files.)
 
-Add your code in the movie_steps.rb step definition file. You can just use ActiveRecord calls to directly add movies to the database; it's OK to bypass the GUI associated with creating new movies, since that's not what these scenarios are testing.
+Add your code in the `movie_steps.rb` step definition file. You can just use ActiveRecord calls to directly add movies to the database; it's OK to bypass the GUI associated with creating new movies, since that's not what these scenarios are testing.
 
 SUCCESS is when all Background steps for the scenarios in `filter_movie_list.feature` and `sort_movie_list.feature` are passing Green.
 

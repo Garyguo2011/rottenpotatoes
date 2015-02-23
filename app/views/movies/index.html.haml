@@ -8,10 +8,6 @@
     = check_box_tag "ratings[#{rating}]", 1, params[:ratings][rating], :id => "ratings_#{rating}"
   = submit_tag 'Refresh', :id => "ratings_submit"
 
-/ {:id => 'ratings_form'}
-/ {:id => "ratings_#{rating}"}
-/ {:id => "ratings_submit"}
-
 %table#movies
   %thead
     %tr
@@ -28,6 +24,3 @@
         %td= link_to "More about #{movie.title}", movie_path(movie)
 
 = link_to 'Add new movie', new_movie_path
-
-/ 
-/ 

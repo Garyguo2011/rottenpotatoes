@@ -7,6 +7,10 @@ Given /the following movies exist/ do |movies_table|
     @output_movie = Movie.create!(movie)
     # puts "#{@output_movie.title} was successfully created."
     # puts Movie.all.count
+    # puts ">>>>>>"
+    # Movie.order(:release_date).each do |movie_sort|
+    #   puts movie_sort.title
+    # end
   end
   # flunk "Unimplemented"
 end
@@ -17,7 +21,10 @@ end
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   #  ensure that that e1 occurs before e2.
   #  page.body is the entire content of the page as a string.
-  flunk "Unimplemented"
+  # flunk "Unimplemented"
+  e1_position = page.body.index(e1) ? page.body.index(e1) : -1
+  e2_position = page.body.index(e2) ? page.body.index(e2) : -1
+  assert(e1_position < e2_position, e1.to_s + " does not see before " + e2.to_s)
 end
 
 # Make it easier to express checking or unchecking several boxes at once

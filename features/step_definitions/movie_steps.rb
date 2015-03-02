@@ -4,6 +4,7 @@ Given /the following movies exist/ do |movies_table|
   movies_table.hashes.each do |movie|
     # each returned element will be a hash whose key is the table header.
     # you should arrange to add that movie to the database here.
+    # puts movie
     @output_movie = Movie.create!(movie)
     # puts "#{@output_movie.title} was successfully created."
     # puts Movie.all.count
@@ -48,9 +49,22 @@ When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
   end
 end
 
+Then /the director of "([^"]*)" should be "([^"]*)"/ do |movie_name, director|
+  movie_director = Movie.find_by_title(movie_name).director
+  assert(movie_director == director, movie_director.to_s + "does not equal" + director.to_s)
+end
+
 Then /I should see all the movies/ do
   # Make sure that all the movies in the app are visible in the table
   rows = page.all('table#movies tbody tr').count
   value = Movie.all.count
   assert(rows == value, rows.to_s + " does not equal " + value.to_s)
 end
+
+Then /I should see all the movies/ do
+  # Make sure that all the movies in the app are visible in the table
+  rows = page.all('table#movies tbody tr').count
+  value = Movie.all.count
+  assert(rows == value, rows.to_s + " does not equal " + value.to_s)
+end
+

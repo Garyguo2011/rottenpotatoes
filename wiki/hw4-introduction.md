@@ -47,6 +47,8 @@ Remember that once the migration is applied, you also have to do `rake db:test:p
 The second lets you click a new link on a movie details page "Find Movies With Same Director", and shows all movies that share the same director as the displayed movie.
 For this you'll have to modify the existing Show Movie view, and you'll have to add a route, view and controller method for Find With Same Director.
 
+
+
 The third handles the sad path, when the current movie has no director info but we try to do "Find with same director" anyway.
 
 Going one Cucumber step at a time, use RSpec to create the appropriate controller and model specs to drive the creation of the new controller and model methods. At the least, you will need to write tests to drive the creation of:
@@ -65,3 +67,18 @@ Add the following lines to the TOP of `spec/spec_helper.rb` and `features/suppor
 	SimpleCov.start 'rails'
   
 Now when you run `rake spec` or `rake cucumber`, SimpleCov will generate a report in a directory named coverage/. Since both RSpec and Cucumber are so widely used, SimpleCov can intelligently merge the results, so running the tests for Rspec does not overwrite the coverage results from SimpleCov and vice versa. See the ESaaS screencast for step-by-step instructions on setting up SimpleCov.
+
+
+# NOTE FROM LECTURE
+
+TDD for the controlloer actions:
+
+* Add a route to `config/routes.rb` (Route that posts 'search TMDB' form) `post /movies/search_tmdb`
+	* Convention over configuration will map this to `MoviesController#search_tmdb`
+* Create an empty view: `touch app/views/movies/search_tmdb.html/haml`
+* Replace fake "hardwired" method in `movies_controller.rb` with empty method:
+
+
+	def serach_tmdb
+	end
+

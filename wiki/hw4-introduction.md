@@ -47,6 +47,12 @@ Remember that once the migration is applied, you also have to do `rake db:test:p
 The second lets you click a new link on a movie details page "Find Movies With Same Director", and shows all movies that share the same director as the displayed movie.
 For this you'll have to modify the existing Show Movie view, and you'll have to add a route, view and controller method for Find With Same Director.
 
+* You will have to modify the existing Show Movie view
+* You will have to add a route, view, controller method for Find with same director
+
+* [Route] add `get 'movies/:id/find_with_same_director' => 'MoviesController#find_with_same_director'` to `routes.rb` 
+* 
+
 
 
 The third handles the sad path, when the current movie has no director info but we try to do "Find with same director" anyway.
